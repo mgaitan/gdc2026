@@ -66,28 +66,30 @@ body:
   - type: dropdown
     id: strategic_alignment
     attributes:
-      label: Strategic Alignment
-      description: Select one or more GDC Council 2026 priority areas.
+      label: "Strategic Alignment: How does this relate to the GDC Council 2026 Priorities?"
+      description: Select one or more options.
       multiple: true
       options:
-        - Governance and Trust Infrastructure
-        - Interoperability and Cross-jurisdiction Recognition
-        - Sectoral Use Cases
-        - Privacy and Security
-        - Inclusion and Deployment Considerations
+        - Age assurance and children’s online safety as a leading use case, with the objective of developing, in partnership with regulators, a common, interoperable approach to age verification to avoid regulatory and technical fragmentation across jurisdictions.
+        - Trust registries as foundational infrastructure for interoperability. Trusted lists, infrastructure, and governance.
+        - Development of practical interoperability roadmaps and pilots. Digital identities Playground for interoperability testing
+        - Support Global Alignment for the ICAO Digital Passport - (Digital Travel Credential – DTC).
+        - Worldwide interoperability of QEAA attestations (i.e., Digital Travel Credential (DTC) and mobile Driver Licence (mDL)
+        - Mutual recognition of credentials across jurisdictions, for example, for the mobility of skilled professionals.
+        - Digital Health - Verifiable credentials for immunization records and health workforce credentialing.
+        - DC API
+        - Post-quantum ZKP
+        - Banking use case - bank account opening (KYC).
+        - Certifications for the various digital identity ecosystems at the global level.
+        - State sovereignties in digital identity ecosystems.
+        - Hardware
+        - Trade credentials
+        - Long-term outlook for data minimization.
+        - Promote selective disclosure and decentralized identifiers.
+        - Ensure developing country needs are included (offline use cases, multi-device realities, affordability).
+        - Privacy-enhancing technologies for KYC/AML.
     validations:
       required: true
-
-  - type: markdown
-    attributes:
-      value: |
-        **Strategic Alignment guidance**
-
-        - **Governance and Trust Infrastructure**: Trust registries / trusted lists / certification / state sovereignty
-        - **Interoperability and Cross-jurisdiction Recognition**: Mutual recognition of credentials; DTC/mDL / QEAA alignment; DC API; interoperability playground
-        - **Sectoral Use Cases**: Age assurance; Digital Health; Banking KYC (account opening); Trade credentials; mobility of professionals
-        - **Privacy and Security**: Data minimization; selective disclosure; decentralized identifiers; privacy-enhancing tech for KYC/AML; post-quantum ZKP; hardware resilience
-        - **Inclusion and Deployment Considerations**: Developing country needs (offline, multi-device, affordability)
 
   - type: dropdown
     id: public_private_balance
