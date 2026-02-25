@@ -1,6 +1,6 @@
-# Global Digital Collaboration Co-Organizers Meeting
+# Global Digital Collaboration Meeting
 
-This repository contains the GitHub Issue Form template used to collect session proposals for the Global Digital Collaboration Co-Organizers Meeting.
+This repository contains the GitHub Issue Form template used to collect session proposals for the Global Digital Collaboration Meeting.
 
 ## Included
 
@@ -10,10 +10,5 @@ This repository contains the GitHub Issue Form template used to collect session 
 
 1. Open the repository **Issues** tab.
 2. Click **New issue**.
-3. Select **Global Digital Collaboration Co-Organizers Meeting Session Registration**.
+3. Select **Global Digital Collaboration Meeting Session Registration**.
 4. Complete and submit the form.
-
-## Notes
-
-- The source PDF is intentionally not included in this repository.
-- The issue template is written in English.
