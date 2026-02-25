@@ -1,0 +1,121 @@
+name: Global Digital Collaboration Co-Organizers Meeting Session Registration
+description: Register a proposed session for the Global Digital Collaboration Co-Organizers Meeting.
+title: "[Session Registration]: "
+labels:
+  - session-registration
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Complete this form to submit a session proposal for the Global Digital Collaboration Co-Organizers Meeting.
+
+  - type: input
+    id: contact_person
+    attributes:
+      label: Contact Person
+      description: Provide name and email.
+      placeholder: Jane Doe, jane@example.org
+    validations:
+      required: true
+
+  - type: input
+    id: session_title
+    attributes:
+      label: Session Title
+      description: Max 120 characters.
+      placeholder: Enter session title
+    validations:
+      required: true
+
+  - type: textarea
+    id: co_organizers
+    attributes:
+      label: Co-Organizers
+      description: List all organizations. Minimum 2 required.
+      placeholder: |
+        1) Organization A
+        2) Organization B
+    validations:
+      required: true
+
+  - type: input
+    id: short_summary
+    attributes:
+      label: Short Summary
+      description: Briefly describe the session topic (max 100 characters).
+      placeholder: One-line session summary
+    validations:
+      required: true
+
+  - type: input
+    id: objectives_outcomes
+    attributes:
+      label: Objectives and Outcomes
+      description: What do you hope to achieve? (max 100 characters)
+      placeholder: Expected objectives and outcomes
+    validations:
+      required: true
+
+  - type: input
+    id: strategic_alignment
+    attributes:
+      label: Strategic Alignment
+      description: How does this relate to the GDC Council 2026 priorities? (max 100 characters)
+      placeholder: Alignment with GDC Council 2026 priorities
+    validations:
+      required: true
+
+  - type: dropdown
+    id: public_private_balance
+    attributes:
+      label: Public/Private Balance
+      description: Please indicate whether the speakers represent both sectors.
+      options:
+        - Yes, includes both public and private sector speakers
+        - No, only one sector represented currently
+        - To be confirmed
+    validations:
+      required: true
+
+  - type: textarea
+    id: target_audience
+    attributes:
+      label: Target Audience
+      placeholder: Describe the intended audience
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_speakers_moderators
+    attributes:
+      label: Proposed Speakers and Moderators
+      description: Include name, affiliation, and role for each person.
+      placeholder: |
+        - Name - Affiliation - Role
+        - Name - Affiliation - Role
+    validations:
+      required: true
+
+  - type: input
+    id: estimated_room_capacity
+    attributes:
+      label: Estimated Room Capacity
+      placeholder: e.g., 50
+    validations:
+      required: true
+
+  - type: textarea
+    id: av_tech_requirements_room_setup
+    attributes:
+      label: AV/Tech Requirements and Room Setup
+      placeholder: Describe audio/visual, technical needs, and room layout.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_information
+    attributes:
+      label: Additional Information
+      placeholder: Any additional context or requests.
+    validations:
+      required: false
