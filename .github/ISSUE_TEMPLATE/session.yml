@@ -1,5 +1,5 @@
-name: Global Digital Collaboration Co-Organizers Meeting Session Registration
-description: Register a proposed session for the Global Digital Collaboration Co-Organizers Meeting.
+name: Global Digital Collaboration Meeting Session Registration
+description: Register a proposed session for the Global Digital Collaboration Meeting.
 title: "[Session Registration]: "
 labels:
   - session-registration
@@ -10,11 +10,18 @@ body:
         Complete this form to submit a session proposal for the Global Digital Collaboration Co-Organizers Meeting.
 
   - type: input
-    id: contact_person
+    id: contact_name
     attributes:
-      label: Contact Person
-      description: Provide name and email.
-      placeholder: Jane Doe, jane@example.org
+      label: Contact Name
+      placeholder: Jane Doe
+    validations:
+      required: true
+
+  - type: input
+    id: contact_email
+    attributes:
+      label: Contact Email
+      placeholder: jane@example.org
     validations:
       required: true
 
