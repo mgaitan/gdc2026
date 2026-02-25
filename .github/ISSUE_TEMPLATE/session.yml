@@ -67,10 +67,27 @@ body:
     id: strategic_alignment
     attributes:
       label: Strategic Alignment
-      description: How does this relate to the GDC Council 2026 priorities? (max 100 characters)
-      placeholder: Alignment with GDC Council 2026 priorities
+      description: Select one or more GDC Council 2026 priority areas.
+      multiple: true
+      options:
+        - Governance and Trust Infrastructure
+        - Interoperability and Cross-jurisdiction Recognition
+        - Sectoral Use Cases
+        - Privacy and Security
+        - Inclusion and Deployment Considerations
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        **Strategic Alignment guidance**
+
+        - **Governance and Trust Infrastructure**: Trust registries / trusted lists / certification / state sovereignty
+        - **Interoperability and Cross-jurisdiction Recognition**: Mutual recognition of credentials; DTC/mDL / QEAA alignment; DC API; interoperability playground
+        - **Sectoral Use Cases**: Age assurance; Digital Health; Banking KYC (account opening); Trade credentials; mobility of professionals
+        - **Privacy and Security**: Data minimization; selective disclosure; decentralized identifiers; privacy-enhancing tech for KYC/AML; post-quantum ZKP; hardware resilience
+        - **Inclusion and Deployment Considerations**: Developing country needs (offline, multi-device, affordability)
 
   - type: dropdown
     id: public_private_balance
@@ -82,7 +99,7 @@ body:
         - No, only one sector represented currently
         - To be confirmed
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: target_audience
@@ -90,7 +107,7 @@ body:
       label: Target Audience
       placeholder: Describe the intended audience
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: proposed_speakers_moderators
@@ -101,7 +118,7 @@ body:
         - Name - Affiliation - Role
         - Name - Affiliation - Role
     validations:
-      required: true
+      required: false
 
   - type: input
     id: estimated_room_capacity
@@ -109,7 +126,7 @@ body:
       label: Estimated Room Capacity
       placeholder: e.g., 50
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: av_tech_requirements_room_setup
@@ -117,7 +134,7 @@ body:
       label: AV/Tech Requirements and Room Setup
       placeholder: Describe audio/visual, technical needs, and room layout.
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: additional_information
