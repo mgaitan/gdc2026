@@ -10,5 +10,4 @@ This repository contains the GitHub Issue Form template used to collect session 
 
 1. Open the repository **Issues** tab.
 2. Click **New issue**.
-3. Select **Global Digital Collaboration Meeting Session Registration**.
-4. Complete and submit the form.
+3. Complete and submit the form.
