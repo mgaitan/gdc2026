@@ -1,0 +1,52 @@
+name: "[A] Validate session"
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+      - edited
+
+permissions:
+  contents: read
+  issues: write
+  actions: write
+
+jobs:
+  validate-session:
+    name: Validate session and update issue labels
+    runs-on: ubuntu-latest
+    if: ${{ !endsWith(github.actor, '-bot') && contains(github.event.issue.labels.*.name, 'session') }}
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Add thank you comment
+        if: ${{ github.event.action == 'opened' }}
+        run: gh issue comment "$NUMBER" --body-file "$BODY_FILE"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY_FILE: .github/session-created.md
+
+      - name: Dump issue changes to file
+        run: echo '${{ toJSON(github.event.issue.changes || '{}') }}' > changes.json
+        shell: bash
+
+      - name: Validate session and update project fields
+        run: npx tpac-breakouts validate ${{ github.event.issue.number }} --changes changes.json --what everything
+        env:
+          REPOSITORY: user:${{ github.repository }}
+          GRAPHQL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

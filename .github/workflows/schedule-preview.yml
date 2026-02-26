@@ -1,0 +1,52 @@
+name: "[M] Propose schedule preview"
+
+on:
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: "Optional seed for reproducible schedule"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  schedule-preview:
+    name: Generate schedule proposal HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create output directory
+        run: mkdir .schedule-preview
+
+      - name: Generate schedule proposal
+        run: |
+          if [ -n "${{ inputs.seed }}" ]; then
+            npx tpac-breakouts schedule --seed "${{ inputs.seed }}" > .schedule-preview/index.html
+          else
+            npx tpac-breakouts schedule > .schedule-preview/index.html
+          fi
+        env:
+          REPOSITORY: user:${{ github.repository }}
+          GRAPHQL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-preview
+          path: .schedule-preview

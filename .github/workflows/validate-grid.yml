@@ -1,0 +1,42 @@
+name: "[M] Validate all sessions"
+
+on:
+  workflow_dispatch:
+    inputs:
+      validation:
+        description: "Validate only scheduling conflicts or all checks"
+        required: true
+        default: scheduling
+        type: choice
+        options:
+          - scheduling
+          - everything
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  validate-grid:
+    name: Validate session grid
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate grid and update project fields
+        run: npx tpac-breakouts validate all --what ${{ inputs.validation }}
+        env:
+          REPOSITORY: user:${{ github.repository }}
+          GRAPHQL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

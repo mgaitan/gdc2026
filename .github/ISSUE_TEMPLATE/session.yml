@@ -1,13 +1,17 @@
-name: Global Digital Collaboration Meeting Session Registration
-description: Register a proposed session for the Global Digital Collaboration Meeting.
-title: "[Session Registration]: "
-labels:
-  - session-registration
+name: Session proposal
+description: Propose to chair a session at the Global Digital Collaboration Meeting
+labels: ["session"]
 body:
   - type: markdown
     attributes:
       value: |
-        Complete this form to submit a session proposal for the Global Digital Collaboration Co-Organizers Meeting.
+        Complete this form to submit a session proposal for the Global Digital Collaboration Meeting.
+        Please keep section headings and order intact; tooling parses this issue body.
+
+  - type: markdown
+    attributes:
+      value: |
+        ## A. Core Information
 
   - type: input
     id: contact_name
@@ -45,17 +49,17 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: short_summary
+  - type: textarea
+    id: description
     attributes:
       label: Short Summary
       description: Briefly describe the session topic (max 100 characters).
-      placeholder: One-line session summary
+      placeholder: One-line session summary in simple markdown
     validations:
       required: true
 
   - type: input
-    id: objectives_outcomes
+    id: goal
     attributes:
       label: Objectives and Outcomes
       description: What do you hope to achieve? (max 100 characters)
@@ -63,31 +67,35 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: markdown
+    attributes:
+      value: |
+        ## B. Session Details
+
+  - type: checkboxes
     id: strategic_alignment
     attributes:
-      label: "Strategic Alignment: How does this relate to the GDC Council 2026 Priorities?"
-      description: Select one or more options.
-      multiple: true
+      label: Strategic Alignment with GDC priorities
+      description: Select one or more relevant priorities.
       options:
-        - Age assurance and children’s online safety as a leading use case, with the objective of developing, in partnership with regulators, a common, interoperable approach to age verification to avoid regulatory and technical fragmentation across jurisdictions.
-        - Trust registries as foundational infrastructure for interoperability. Trusted lists, infrastructure, and governance.
-        - Development of practical interoperability roadmaps and pilots. Digital identities Playground for interoperability testing
-        - Support Global Alignment for the ICAO Digital Passport - (Digital Travel Credential – DTC).
-        - Worldwide interoperability of QEAA attestations (i.e., Digital Travel Credential (DTC) and mobile Driver Licence (mDL)
-        - Mutual recognition of credentials across jurisdictions, for example, for the mobility of skilled professionals.
-        - Digital Health - Verifiable credentials for immunization records and health workforce credentialing.
-        - DC API
-        - Post-quantum ZKP
-        - Banking use case - bank account opening (KYC).
-        - Certifications for the various digital identity ecosystems at the global level.
-        - State sovereignties in digital identity ecosystems.
-        - Hardware
-        - Trade credentials
-        - Long-term outlook for data minimization.
-        - Promote selective disclosure and decentralized identifiers.
-        - Ensure developing country needs are included (offline use cases, multi-device realities, affordability).
-        - Privacy-enhancing technologies for KYC/AML.
+        - label: Age assurance and children’s online safety with interoperable age verification across jurisdictions.
+        - label: Trust registries as foundational infrastructure for interoperability.
+        - label: Practical interoperability roadmaps and pilots (including digital identity playgrounds).
+        - label: Global alignment for ICAO Digital Travel Credential.
+        - label: Worldwide interoperability of QEAA attestations (including DTC and mDL).
+        - label: Mutual recognition of credentials across jurisdictions.
+        - label: Digital health credentials for immunization and workforce use cases.
+        - label: DC API.
+        - label: Post-quantum ZKP.
+        - label: Banking use case for account opening (KYC).
+        - label: Global certifications across digital identity ecosystems.
+        - label: State sovereignty in digital identity ecosystems.
+        - label: Hardware-related interoperability dependencies.
+        - label: Trade credentials.
+        - label: Long-term outlook for data minimization.
+        - label: Selective disclosure and decentralized identifiers.
+        - label: Inclusion of developing country needs (offline, multi-device, affordability).
+        - label: Privacy-enhancing technologies for KYC and AML.
     validations:
       required: true
 
@@ -112,7 +120,7 @@ body:
       required: false
 
   - type: textarea
-    id: proposed_speakers_moderators
+    id: chairs
     attributes:
       label: Proposed Speakers and Moderators
       description: Include name, affiliation, and role for each person.
@@ -121,6 +129,11 @@ body:
         - Name - Affiliation - Role
     validations:
       required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## C. Logistics
 
   - type: input
     id: estimated_room_capacity
@@ -139,7 +152,7 @@ body:
       required: false
 
   - type: textarea
-    id: additional_information
+    id: comments
     attributes:
       label: Additional Information
       placeholder: Any additional context or requests.

@@ -1,0 +1,42 @@
+name: "[M] View current schedule"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  view-event:
+    name: Generate current schedule view
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create output directory
+        run: mkdir .schedule
+
+      - name: Generate HTML schedule
+        run: npx tpac-breakouts view --format html > .schedule/index.html
+        env:
+          REPOSITORY: user:${{ github.repository }}
+          GRAPHQL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule
+          path: .schedule
